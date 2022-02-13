@@ -1,5 +1,5 @@
 
-$.getJSON('/data/zerega-fleet-locations.json', function(locations) {
+$.getJSON('data/zerega-fleet-locations.json', function(locations) {
   console.log(locations)
 
   mapboxgl.accessToken = 'pk.eyJ1IjoicmVuLWhlZ3lpIiwiYSI6ImNremhudTF1eTJjMW0yd2t1NTUzYjN4bmIifQ.IiIyBmQ93k7PgPh0rQrLEg'
