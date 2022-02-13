@@ -15,77 +15,26 @@ $.getJSON('/data/zerega-fleet-locations.json', function(locations) {
     // maxZoom: 14
   });
 
-  // var popup = new mapboxgl.Popup({
-  //   offset: 40,
-  // })
-  //   .setHTML('<h3>Washington Square Park</h3>');
-  //
-  //
-  // // add a marker for the WSP fountain
-  // var marker = new mapboxgl.Marker()
-  //   .setLngLat(wspCenter)
-  //   .setPopup(popup)
-  //   .addTo(map);
-  //
-  //
-  // var pointsOfInterest = [
-  //   {
-  //     lngLat: [-73.996675,40.702154],
-  //     popupHtml: 'Brooklyn Bridge Park',
-  //     subText: 'I got married here'
-  //   },
-  //   {
-  //     lngLat: [-74.001619,40.705662],
-  //     popupHtml: 'South Street Seaport',
-  //     subText: 'This is new, they tore the old one down'
-  //   },
-  //   {
-  //     lngLat: [-74.044491,40.689300],
-  //     popupHtml: 'Statue of Liberty',
-  //     subText: 'July 4, 1776'
-  //   }
-  // ]
-  //
-  // pointsOfInterest.forEach(function(pointOfInterest) {
-  //   var popup = new mapboxgl.Popup({ offset: 40 })
-  //     .setHTML(`
-  //       <h3>${pointOfInterest.popupHtml}</h3>
-  //       <p>${pointOfInterest.subText}</p>
-  //     `);
-  //
-  //   new mapboxgl.Marker()
-  //     .setLngLat(pointOfInterest.lngLat)
-  //     .setPopup(popup)
-  //     .addTo(map);
-  // })
-
-
-  // now add markers for our favorite pizza shops
+  // now add markers for all fleet locations
   locations.forEach(function(location) {
     var popup = new mapboxgl.Popup({ offset: 40 })
       .setHTML(`
-        <p><strong>${location.type}</strong> loves the pizza at <strong>${location.name}</strong></p>
+        <p> <strong> Address: </strong>${location.address} </p>
+        <p> <strong> Site name: </strong>${location.name} </p>
+        <p> <strong> Fleet Size: </strong> ${location.fleet_size} </p>
+        <p> To electrify the <strong>${location.type}</strong> fleet parked at this location, there must be electrical infrastructure available to serve <strong>${location.estimated_demand_mva} MVA</strong> of additional demand.</p>
       `);
 
-    // default is purple for Wagner
+    // default is purple for "multiple" fleet type
     var color = 'purple'
-    //
-    // if (pizzaRow.school === 'Tandon') {
-    //   color = 'orange'
-    // }
-    //
-    // if (pizzaRow.school === 'instructor') {
-    //   color = 'steelblue'
-    // }
-    //
-    // if (pizzaRow.school === 'CUSP') {
-    //   color = 'green'
-    // }
-    //
-    // if (pizzaRow.school === 'GSAS') {
-    //   color = 'pink'
-    // }
 
+    if (location.fleet_type === 'School Bus') {
+      color = '#FFD800'
+    }
+
+    if (location.fleet_type === 'Public Refuse Truck') {
+      color = '#19601B'
+    }
 
     new mapboxgl.Marker({
       color: color
@@ -94,4 +43,36 @@ $.getJSON('/data/zerega-fleet-locations.json', function(locations) {
       .setPopup(popup)
       .addTo(map);
   })
+
+  // define layer names for legend
+const layers = [
+
+'Public Refuse Truck',
+'School Bus',
+'Multiple'
+];
+const colors = [
+'#19601B',
+'#FFD800',
+'purple'
+];
+
+// create legend. Source: https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-2/#add-a-legend
+const legend = document.getElementById('legend');
+
+layers.forEach((layer, i) => {
+const color = colors[i];
+const item = document.createElement('div');
+const key = document.createElement('span');
+key.className = 'legend-key';
+key.style.backgroundColor = color;
+
+const value = document.createElement('span');
+value.innerHTML = `${layer}`;
+item.appendChild(key);
+item.appendChild(value);
+legend.appendChild(item);
+});
+
+
 })

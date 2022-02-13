@@ -134,13 +134,13 @@
   {
     "type": "MTA",
     "name": "Zerega Bus Maintenance and Training Facility",
-    "fleet_type": "",
+    "fleet_type": "Multiple",
     "address": "750 Zerega Ave",
     "gps_latitude": 40.82293995,
     "gps_longitude": -73.84140952,
     "borough": "Bronx",
     "subnetwork": "Southeast Bronx",
-    "fleet_size": "",
-    "estimated_demand_mva": ""
+    "fleet_size": "N/A",
+    "estimated_demand_mva": "N/A"
   }
 ]
