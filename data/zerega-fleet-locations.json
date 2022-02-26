@@ -129,18 +129,66 @@
     "borough": "Bronx",
     "subnetwork": "Southeast Bronx",
     "fleet_size": 42,
-    "estimated_demand_mva": 2.1
+    "estimated_demand_mva": 1.4
   },
   {
     "type": "MTA",
     "name": "Zerega Bus Maintenance and Training Facility",
-    "fleet_type": "Multiple",
+    "fleet_type": "Bus",
     "address": "750 Zerega Ave",
     "gps_latitude": 40.82293995,
     "gps_longitude": -73.84140952,
     "borough": "Bronx",
     "subnetwork": "Southeast Bronx",
-    "fleet_size": "N/A",
-    "estimated_demand_mva": "N/A"
+    "fleet_size": 60,
+    "estimated_demand_mva": 1
+  },
+  {
+    "type": "NYDOE",
+    "name": "Consolidated Bus Transit",
+    "fleet_type": "School Bus",
+    "address": "2350 Hermany Ave, Bronx, NY 10473",
+    "gps_latitude": 40.82532334,
+    "gps_longitude": -73.84426802,
+    "borough": "Bronx",
+    "subnetwork": "Southeast Bronx",
+    "fleet_size": 300,
+    "estimated_demand_mva": 5.63
+  },
+  {
+    "type": "FedEx",
+    "name": "FedEx Ground",
+    "fleet_type": "Delivery vans/trucks",
+    "address": "635 Zerega Ave, Bronx, NY 10473",
+    "gps_latitude": 40.82001358,
+    "gps_longitude": -73.84412854,
+    "borough": "Bronx",
+    "subnetwork": "Southeast Bronx",
+    "fleet_size": 50,
+    "estimated_demand_mva": 0.42
+  },
+  {
+    "type": "DSNY",
+    "name": "N/A",
+    "fleet_type": "Public Refuse Truck",
+    "address": "400 Zerega",
+    "gps_latitude": 40.8183576,
+    "gps_longitude": -73.84268319,
+    "borough": "Bronx",
+    "subnetwork": "Southeast Bronx",
+    "fleet_size": 42,
+    "estimated_demand_mva": 1.4
+  },
+  {
+    "type": "Verizon",
+    "name": "N/A",
+    "fleet_type": "Utility Truck",
+    "address": "500 Zerega",
+    "gps_latitude": 40.81754448,
+    "gps_longitude": -73.84342243,
+    "borough": "Bronx",
+    "subnetwork": "Southeast Bronx",
+    "fleet_size": 40,
+    "estimated_demand_mva": 0.33
   }
 ]
