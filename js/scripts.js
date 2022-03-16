@@ -121,7 +121,33 @@ map.on("load", function () {
       }
     }
   });
+
+  // load text layer for labels
+
+  map.addLayer({
+    id: 'fleet-labels',
+    type: 'symbol',
+    source: 'fleets',
+    layout: {
+    'text-field': ['get', 'estimated_demand_mva'],
+    // 'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+    'text-justify': 'auto',
+    // 'icon-image': ['get', 'icon']
+    'text-size':{
+      property: 'estimated_demand_mva',
+      stops: [
+        [{zoom:11, value:0},5],
+        [{zoom:11, value:6},10],
+        [{zoom:16, value:0},10],
+        [{zoom:16, value:6},16]
+      ]
+    }
+  }
+  });
+
+
 });
+
 
 //tutorial: https://docs.mapbox.com/help/tutorials/building-a-store-locator/
 

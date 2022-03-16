@@ -29,6 +29,7 @@ html, body {
   padding: 25px 15px;
   background-color: #313640;
   color: #FFF;
+  font-size: 15px;
   text-align: left;
   border-right: 1px solid #5e5e5e;
   display: flex;
