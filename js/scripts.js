@@ -57,12 +57,16 @@ const layers = [
 
 'Public Refuse Truck',
 'School Bus',
-'Other'
+'MTA',
+'Commercial',
+//'Other'
 ];
 const colors = [
 '#19601B',
 '#FFD800',
-'purple'
+'blue',
+'orange',
+//'purple'
 ];
 
 // create legend. Source: https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-2/#add-a-legend
@@ -89,7 +93,7 @@ map.on("load", function () {
 
   map.addSource('fleets', {
     type: 'geojson',
-    data: './data/zerega-fleet-locations.geojson'
+    data: './data/zerega-fleet-locations-merged.geojson'
   });
 
   map.addLayer({
@@ -103,10 +107,14 @@ map.on("load", function () {
       'circle-color': [
         'match',
         ['get', 'fleet_type'],
-        'School Bus',
+        'School bus',
         '#FFD800',
-        'Public Refuse Truck',
+        'Sanitation',
         '#19601B',
+        'Commercial',
+        'orange',
+        'MTA',
+        'blue',
         /* other */ 'purple'
         ],
       'circle-opacity': 0.7,
