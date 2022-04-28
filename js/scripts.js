@@ -57,14 +57,17 @@ const layers = [
 
 'Public Refuse Truck',
 'School Bus',
-'MTA',
+//'Police',
+'Other public',
 'Commercial',
+
 //'Other'
 ];
 const colors = [
 '#19601B',
 '#FFD800',
-'blue',
+//'blue',
+'purple',
 'orange',
 //'purple'
 ];
@@ -113,7 +116,7 @@ map.on("load", function () {
         '#19601B',
         'Commercial',
         'orange',
-        'MTA',
+        'Police',
         'blue',
         /* other */ 'purple'
         ],
